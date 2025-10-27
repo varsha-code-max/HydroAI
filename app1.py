@@ -1,5 +1,5 @@
 import streamlit as st
-import pickle
+import joblib
 import os
 import numpy as np
 import pandas as pd
@@ -22,9 +22,9 @@ scaler_path = "scaler.pkl"
 
 if os.path.exists(model_path) and os.path.exists(scaler_path):
     with open(model_path, "rb") as f:
-        model = pickle.load(f)
+        model = joblib.load(f)
     with open(scaler_path, "rb") as f:
-        scaler = pickle.load(f)
+        scaler = joblib.load(f)
     st.success("✅ Model and scaler loaded successfully!")
 else:
     st.error(
